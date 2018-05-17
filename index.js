@@ -43,7 +43,7 @@ const notJustTheMen = (details) => {
 }
 
 const myEnemy = (details) => {
-    const found = details.message.match(\bme\b)
+    const found = details.message.match(^me | me | me$)
     if (found) {
         logger.debug(`Triggered by ${details.user}'s message: ${details.message}`)
         bot.sendMessage({
