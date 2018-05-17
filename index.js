@@ -29,7 +29,7 @@ bot.on('message', (user, userID, channelID, message, evt) => {
 })
 
 const notJustTheMen = (details) => {
-    const found = message.match(/[A-Za-zÀ-ÿ0-9_]*men[A-Za-zÀ-ÿ0-9_]*/i)
+    const found = details.message.match(/[A-Za-zÀ-ÿ0-9_]*men[A-Za-zÀ-ÿ0-9_]*/i)
     if (found) {
         logger.debug(`Triggered by ${details.user}'s message: ${details.message}`)
         const men = found[0]
