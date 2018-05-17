@@ -17,6 +17,11 @@ bot.on('message', (user, userID, channelID, message, evt) => {
     if (userID === bot.id) {
         return
     }
+    notJustTheMen(message)
+    myEnemy(message)
+})
+
+function notJustTheMen(message) {
     const found = message.match(/[A-Za-zÀ-ÿ0-9_]*men[A-Za-zÀ-ÿ0-9_]*/i)
     if (found) {
         logger.debug(`Triggered by ${user}'s message: ${message}`)
@@ -28,4 +33,14 @@ bot.on('message', (user, userID, channelID, message, evt) => {
             message: `Not just the ${men}, but the ${women} and ${children} too`
         })
     }
-})
+}
+
+function myEnemy(message) {
+    const found = message.match(\bme\b)
+    if (found) {
+        bot.sendMessage({
+            to: channelID,
+            message: `If you're not with me, then you're my enemy.`
+        })
+    }
+}
